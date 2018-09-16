@@ -9,66 +9,66 @@ import org.hibernate.SessionFactory
 @Rollback
 class EmployeeServiceSpec extends Specification {
 
-    EmployeeService employeeService
-    SessionFactory sessionFactory
+  EmployeeService employeeService
+  SessionFactory sessionFactory
 
-    private Long setupData() {
-        // TODO: Populate valid domain instances and return a valid ID
-        //new Employee(...).save(flush: true, failOnError: true)
-        //new Employee(...).save(flush: true, failOnError: true)
-        //Employee employee = new Employee(...).save(flush: true, failOnError: true)
-        //new Employee(...).save(flush: true, failOnError: true)
-        //new Employee(...).save(flush: true, failOnError: true)
-        assert false, "TODO: Provide a setupData() implementation for this generated test suite"
-        //employee.id
-    }
+  private Long setupData() {
+    // TODO: Populate valid domain instances and return a valid ID
+    //new Employee(...).save(flush: true, failOnError: true)
+    //new Employee(...).save(flush: true, failOnError: true)
+    //Employee employee = new Employee(...).save(flush: true, failOnError: true)
+    //new Employee(...).save(flush: true, failOnError: true)
+    //new Employee(...).save(flush: true, failOnError: true)
+    assert false, "TODO: Provide a setupData() implementation for this generated test suite"
+    //employee.id
+  }
 
-    void "test get"() {
-        setupData()
+  void "test get"() {
+    setupData()
 
-        expect:
-        employeeService.get(1) != null
-    }
+    expect:
+    employeeService.get(1) != null
+  }
 
-    void "test list"() {
-        setupData()
+  void "test list"() {
+    setupData()
 
-        when:
-        List<Employee> employeeList = employeeService.list(max: 2, offset: 2)
+    when:
+    List<Employee> employeeList = employeeService.list(max: 2, offset: 2)
 
-        then:
-        employeeList.size() == 2
-        assert false, "TODO: Verify the correct instances are returned"
-    }
+    then:
+    employeeList.size() == 2
+    assert false, "TODO: Verify the correct instances are returned"
+  }
 
-    void "test count"() {
-        setupData()
+  void "test count"() {
+    setupData()
 
-        expect:
-        employeeService.count() == 5
-    }
+    expect:
+    employeeService.count() == 5
+  }
 
-    void "test delete"() {
-        Long employeeId = setupData()
+  void "test delete"() {
+    Long employeeId = setupData()
 
-        expect:
-        employeeService.count() == 5
+    expect:
+    employeeService.count() == 5
 
-        when:
-        employeeService.delete(employeeId)
-        sessionFactory.currentSession.flush()
+    when:
+    employeeService.delete(employeeId)
+    sessionFactory.currentSession.flush()
 
-        then:
-        employeeService.count() == 4
-    }
+    then:
+    employeeService.count() == 4
+  }
 
-    void "test save"() {
-        when:
-        assert false, "TODO: Provide a valid instance to save"
-        Employee employee = new Employee()
-        employeeService.save(employee)
+  void "test save"() {
+    when:
+    assert false, "TODO: Provide a valid instance to save"
+    Employee employee = new Employee()
+    employeeService.save(employee)
 
-        then:
-        employee.id != null
-    }
+    then:
+    employee.id != null
+  }
 }

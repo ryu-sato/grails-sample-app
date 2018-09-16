@@ -2,8 +2,8 @@ root = true
 
 [*]
 end_of_line = lf
-
-[*.{groovy,yml}]
 charset = utf-8
+
+[*.{groovy,gsp,css,yml}]
 indent_style = space
 indent_size = 2
