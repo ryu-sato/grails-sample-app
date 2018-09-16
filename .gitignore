@@ -11,3 +11,4 @@ out/
 .settings
 .classpath
 devDb.mv.db
+devDb.trace.db
