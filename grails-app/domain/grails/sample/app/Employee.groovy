@@ -21,10 +21,11 @@ class Employee {
   }
 
   public int serviceYears() {
-    def duration = Date.now - this.joinedDate
-    if (duration.days < 0) {
+    def today = new Date()
+    def duration = today - this.joinedDate
+    if (duration < 0) {
       return 0
     }
-    def serviceYears = Math.floor(duration.days / 365)
+    def serviceYears = Math.floor(duration / 365)
   }
 }

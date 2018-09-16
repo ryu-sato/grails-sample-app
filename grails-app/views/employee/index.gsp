@@ -44,14 +44,14 @@
           <thead>
             <tr>
               <th>Edit</th>
-              <g:each in="${['id', 'name', 'department', 'gender']}" var="p" status="i">
+              <g:each in="${['id', 'name', 'department', 'gender']}" var="p">
                 <g:set var="propTitle">${p}</g:set>
                 <g:sortableColumn property="${p}" title="${message(code: propTitle, default: p)}" />
               </g:each>
             </tr>
           </thead>
           <tbody>
-          <g:each in="${employeeList}" var="employee" status="i">
+          <g:each in="${employeeList}" var="employee">
             <tr>
               <td><input name="id" type="radio" value="${employee.id}" onclick="handleEditButtonStatus()" /></td>
               <g:each in="${['id', 'name', 'department', 'gender']}" var="p">

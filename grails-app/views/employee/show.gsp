@@ -19,7 +19,21 @@
       <g:if test="${flash.message}">
       <div class="message" role="status">${flash.message}</div>
       </g:if>
-      <f:display bean="employee" />
+      <!-- f:display bean="employee" / -->
+      <ol class="property-list employee">
+        <li class="fieldcontain">
+          <g:each in="${['id', 'name', 'department', 'gender', 'birth', 'serviceYears', 'payment', 'note']}" var="p">
+            <span id="name-label" class="property-label">${p}</span>
+            <g:if test="${p=='serviceYears'}">
+              <div class="property-value" aria-labelledby="name-label">${employee.serviceYears()}</div>
+            </g:if>
+            <g:else>
+              <div class="property-value" aria-labelledby="name-label">${employee.properties[p]}</div>
+            </g:else>
+          </g:each>
+        </li>
+      </ol>
+      
       <g:form resource="${this.employee}" method="DELETE">
         <fieldset class="buttons">
           <g:link class="edit" action="edit" resource="${this.employee}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
