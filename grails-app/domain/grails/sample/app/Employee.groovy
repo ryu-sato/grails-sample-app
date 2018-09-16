@@ -19,4 +19,12 @@ class Employee {
     payment min: new Long(0), blank: false
     note blank: true
   }
+
+  public int serviceYears() {
+    def duration = Date.now - this.joinedDate
+    if (duration.days < 0) {
+      return 0
+    }
+    def serviceYears = Math.floor(duration.days / 365)
+  }
 }
