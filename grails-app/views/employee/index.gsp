@@ -61,7 +61,7 @@
           </tbody>
         </table>
 
-        <button disabled="false" id="edit_button"><g:message code="default.edit.label" args="[entityName]" /></button>
+        <button class="btn btn-secondary" disabled="false" id="edit_button"><g:message code="default.edit.label" args="[entityName]" /></button>
       </g:form>
 
       <div class="pagination">
