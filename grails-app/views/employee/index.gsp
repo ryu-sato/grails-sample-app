@@ -5,26 +5,21 @@
     <g:set var="entityName" value="${message(code: 'employee.label', default: 'Employee')}" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
     <script language="javascript">
-      var edit_button_id = "edit_button";
-      function enableEditButton() {
-        document.getElementById(edit_button_id).disabled = false;
-      }
-      function disableEditButton() {
-        document.getElementById(edit_button_id).disabled = true;
-      }
-      function handleEditButtonStatus() {
+      /* 編集ボタンのステータスをラジオボタンのステータスを基に設定する */
+      function setEditButtonStatusByRadioButton() {
+        var edit_button_id = "edit_button";
         var radios = document.getElementsByName('id');
         var checkedNum = 0;
         radios.forEach(e => e.checked && checkedNum++);
         if (checkedNum > 0) {
-          enableEditButton();
+          document.getElementById(edit_button_id).disabled = false;
         } else {
-          disableEditButton();
+          document.getElementById(edit_button_id).disabled = true;
         }
       }
     </script>
   </head>
-  <body onload="handleEditButtonStatus()">
+  <body>
     <a href="#list-employee" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
     <div class="nav" role="navigation">
       <ul>
@@ -40,20 +35,20 @@
 
       <g:form action="edit">
         <table class="table table-striped">
+          <g:set var="props" value="${['id', 'name', 'department', 'gender']}" />
           <thead>
             <tr>
               <th>Edit</th>
-              <g:each in="${['id', 'name', 'department', 'gender']}" var="p">
-                <g:set var="propTitle">${p}</g:set>
-                <g:sortableColumn property="${p}" title="${message(code: propTitle, default: p)}" />
+              <g:each in="${props}" var="p">
+                <g:sortableColumn property="${p}" title="${p}" />
               </g:each>
             </tr>
           </thead>
           <tbody>
           <g:each in="${employeeList}" var="employee">
             <tr>
-              <td><input name="id" type="radio" value="${employee.id}" onclick="handleEditButtonStatus()" /></td>
-              <g:each in="${['id', 'name', 'department', 'gender']}" var="p">
+              <td><input name="id" type="radio" value="${employee.id}" onclick="setEditButtonStatusByRadioButton()" /></td>
+              <g:each in="${props}" var="p">
                 <g:if test="${p=='id'}">
                   <td><g:link method="GET" resource="${employee}">${employee.properties[p]}</g:link></td>
                 </g:if>

@@ -20,12 +20,11 @@ class Employee {
     note blank: true
   }
 
+  /**
+  * 勤続年数
+  */
   public int serviceYears() {
     def today = new Date()
-    def duration = today - this.joinedDate
-    if (duration < 0) {
-      return 0
-    }
-    def serviceYears = Math.floor(duration / 365)
+    return Math.max(0, today.year - this.joinedDate.year)
   }
 }
