@@ -19,7 +19,7 @@
       <g:if test="${flash.message}">
       <div class="message" role="status">${flash.message}</div>
       </g:if>
-      <!-- f:display bean="employee" / -->
+
       <ol class="property-list employee">
         <li class="fieldcontain">
           <g:each in="${['id', 'name', 'department', 'gender', 'birth', 'serviceYears', 'payment', 'note']}" var="p">
