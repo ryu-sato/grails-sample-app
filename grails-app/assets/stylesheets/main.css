@@ -110,7 +110,7 @@ img {
 
 /* NAVIGATION MENU */
 
-.nav {
+.nav, nav {
     zoom: 1;
 }
 
@@ -128,7 +128,7 @@ img {
     padding: 0;
 }
 
-.nav a {
+.nav a, nav a {
     color: #666666;
     display: block;
     padding: 0.25em 0.7em;
@@ -138,42 +138,42 @@ img {
     border-radius: 0.3em;
 }
 
-.nav a:active, .nav a:visited {
+.nav a:active, .nav a:visited, nav a:active, nav a:visited {
     color: #666666;
 }
 
-.nav a:focus, .nav a:hover {
+.nav a:focus, .nav a:hover, nav a:focus, nav a:hover {
     background-color: #999999;
     color: #ffffff;
     outline: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-.no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
+.no-borderradius .nav a:focus, .no-borderradius nav a:focus, .no-borderradius .nav a:hover, .no-borderradius nav a:hover {
     background-color: transparent;
     color: #444444;
     text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
+.nav a.home, .nav a.list, .nav a.create, nav a.home, nav a.list, nav a.create {
     background-position: 0.7em center;
     background-repeat: no-repeat;
     text-indent: 25px;
 }
 
-.nav a.home {
+.nav a.home, nav a.home {
     background-image: url(../images/skin/house.png);
 }
 
-.nav a.list {
+.nav a.list, nav a.list {
     background-image: url(../images/skin/database_table.png);
 }
 
-.nav a.create {
+.nav a.create, nav a.create {
     background-image: url(../images/skin/database_add.png);
 }
 
-.nav li.dropdown.open ul.dropdown-menu {
+.nav li.dropdown ul.dropdown-menu, nav li.dropdown ul.dropdown-menu {
     background-color: #424649;
 }
 

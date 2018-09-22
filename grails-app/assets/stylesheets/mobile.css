@@ -1,11 +1,11 @@
 /* Styles for mobile devices */
 
 @media screen and (max-width: 480px) {
-    .nav {
+    .nav, nav {
         padding: 0.5em;
     }
 
-    .nav li {
+    .nav li, nav li {
         margin: 0 0.5em 0 0;
         padding: 0.25em;
     }

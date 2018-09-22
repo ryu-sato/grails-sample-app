@@ -4,7 +4,7 @@
     <meta name="layout" content="main" />
     <g:set var="entityName" value="${message(code: 'employee.label', default: 'Employee')}" />
     <title><g:message code="default.list.label" args="[entityName]" /></title>
-    <script language="javascript">
+    <script type="text/javascript">
       /* 編集ボタンのステータスをラジオボタンのステータスを基に設定する */
       function setEditButtonStatusByRadioButton() {
         var edit_button_id = "edit_button";
@@ -17,6 +17,12 @@
           document.getElementById(edit_button_id).disabled = true;
         }
       }
+
+      $(document).ready(function() {
+        $('#employeeindex').dataTable({
+          "paging": false
+        });
+      } );
     </script>
   </head>
   <body>
@@ -34,7 +40,8 @@
       </g:if>
 
       <g:form action="edit">
-        <table class="table table-striped">
+        <g:set var="props" value="${['id', 'name', 'department', 'gender']}" />
+        <table id="employeeindex" class="display table table-striped">
           <g:set var="props" value="${['id', 'name', 'department', 'gender']}" />
           <thead>
             <tr>

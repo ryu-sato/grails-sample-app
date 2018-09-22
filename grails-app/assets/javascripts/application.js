@@ -7,6 +7,8 @@
 //
 //= require jquery-3.3.1.min
 //= require bootstrap.bundle
+//= require jquery.dataTables
+//= require dataTables.bootstrap4
 //= require_tree .
 //= require_self
 
