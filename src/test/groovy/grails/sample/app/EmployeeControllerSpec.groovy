@@ -10,9 +10,13 @@ class EmployeeControllerSpec extends Specification implements ControllerUnitTest
   def populateValidParams(params) {
     assert params != null
 
-    // TODO: Populate valid properties like...
-    //params["name"] = 'someValidName'
-    assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+    params["name"] = 'john doe'
+    params["department"] = 'human resource'
+    params["gender"] = 'other'
+    params["birth"] = new Date('1999/01/01')
+    params["joinedDate"] = new Date('2018/04/01')
+    params["payment"] = new Long(100000)
+    params["note"] = ""
   }
 
   void "Test the index action returns the correct model"() {
@@ -45,7 +49,7 @@ class EmployeeControllerSpec extends Specification implements ControllerUnitTest
     controller.save(null)
 
     then:"A 404 error is returned"
-    response.redirectedUrl == '/employee/index'
+    response.redirectedUrl == '/'
     flash.message != null
   }
 
@@ -149,7 +153,7 @@ class EmployeeControllerSpec extends Specification implements ControllerUnitTest
     controller.update(null)
 
     then:"A 404 error is returned"
-    response.redirectedUrl == '/employee/index'
+    response.redirectedUrl == '/'
     flash.message != null
   }
 
@@ -199,7 +203,7 @@ class EmployeeControllerSpec extends Specification implements ControllerUnitTest
     controller.delete(null)
 
     then:"A 404 is returned"
-    response.redirectedUrl == '/employee/index'
+    response.redirectedUrl == '/'
     flash.message != null
   }
 
@@ -215,7 +219,7 @@ class EmployeeControllerSpec extends Specification implements ControllerUnitTest
     controller.delete(2)
 
     then:"The user is redirected to index"
-    response.redirectedUrl == '/employee/index'
+    response.redirectedUrl == '/'
     flash.message != null
   }
 }

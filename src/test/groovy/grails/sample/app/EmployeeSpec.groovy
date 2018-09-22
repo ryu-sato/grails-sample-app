@@ -10,9 +10,4 @@ class EmployeeSpec extends Specification implements DomainUnitTest<Employee> {
 
   def cleanup() {
   }
-
-  void "test something"() {
-    expect:"fix me"
-      true == false
-  }
 }

@@ -12,15 +12,27 @@ class EmployeeServiceSpec extends Specification {
   EmployeeService employeeService
   SessionFactory sessionFactory
 
+  private Employee setupValidData() {
+    return new Employee(name: 'nanashi', department: 'IT Solutions',
+                        gender: 'other', birth: new Date('1999/01/01'), joinedDate: new Date('2019/04/01'),
+                        payment: new Long(120000), note: "").save(flush: true, failOnError: true)
+  }
+
   private Long setupData() {
-    // TODO: Populate valid domain instances and return a valid ID
-    //new Employee(...).save(flush: true, failOnError: true)
-    //new Employee(...).save(flush: true, failOnError: true)
-    //Employee employee = new Employee(...).save(flush: true, failOnError: true)
-    //new Employee(...).save(flush: true, failOnError: true)
-    //new Employee(...).save(flush: true, failOnError: true)
-    assert false, "TODO: Provide a setupData() implementation for this generated test suite"
-    //employee.id
+    new Employee(name: 'john doe', department: 'Human Resources',
+                 gender: 'other', birth: new Date('1999/01/01'), joinedDate: new Date('2018/04/01'),
+                 payment: new Long(100000), note: "").save(flush: true, failOnError: true)
+    new Employee(name: 'alice', department: 'Sales',
+                 gender: 'female', birth: new Date('1981/02/03'), joinedDate: new Date('2018/04/01'),
+                 payment: new Long(150000), note: "").save(flush: true, failOnError: true)
+    new Employee(name: 'bob', department: 'IT Solutions',
+                 gender: 'male', birth: new Date('1955/11/11'), joinedDate: new Date('1990/04/01'),
+                 payment: new Long(300000), note: "").save(flush: true, failOnError: true)
+    new Employee(name: 'charlie', department: 'Sales',
+                 gender: 'male', birth: new Date('1977/7/7'), joinedDate: new Date('2000/04/01'),
+                 payment: new Long(280000), note: "").save(flush: true, failOnError: true)
+    Employee employee = setupValidData()
+    employee.id
   }
 
   void "test get"() {
@@ -38,7 +50,6 @@ class EmployeeServiceSpec extends Specification {
 
     then:
     employeeList.size() == 2
-    assert false, "TODO: Verify the correct instances are returned"
   }
 
   void "test count"() {
@@ -64,8 +75,7 @@ class EmployeeServiceSpec extends Specification {
 
   void "test save"() {
     when:
-    assert false, "TODO: Provide a valid instance to save"
-    Employee employee = new Employee()
+    Employee employee = setupValidData()
     employeeService.save(employee)
 
     then:
