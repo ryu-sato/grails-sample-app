@@ -76,6 +76,11 @@ dependencies {
   testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 }
 
+configurations {
+  // see. https://www.marcelustrojahn.com/2015/12/integrating-zk-framework-on-a-spring-boot-application/  
+  all*.exclude group: 'org.slf4j', module: 'slf4j-jdk14'
+}
+
 bootRun {
   jvmArgs('-Dspring.output.ansi.enabled=always')
   addResources = true

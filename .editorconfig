@@ -4,6 +4,6 @@ root = true
 end_of_line = lf
 charset = utf-8
 
-[*.{groovy,gradle,gsp,css,yml}]
+[*.{groovy,gradle,gsp,css,yml,zul,zhtml}]
 indent_style = space
 indent_size = 2
